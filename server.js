@@ -3,9 +3,9 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static('views'));
+app.use(express.static('public'));
 
-app.use('/home', express.static('./public/index.html'));
+app.use('/', express.static('./public/index.html'));
 
 app.get('/api/*', function(req, res) {
     console.log(req.originalUrl);
