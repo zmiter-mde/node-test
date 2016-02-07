@@ -4,6 +4,9 @@
   "description": "Client for HabitTracker app",
   "main": "server.js",
   "scripts": {
+    "start": "node src/server/server.js"
+  },
+  "devScripts": {
     "start": "node src/server/server.js",
     "init": "npm install",
     "install": "bower install",
