@@ -2,6 +2,7 @@ target/
 build/
 report/
 node/
+node_modules/
 pom.xml.tag
 /sonar-runner.bat
 pom.xml.releaseBackup
