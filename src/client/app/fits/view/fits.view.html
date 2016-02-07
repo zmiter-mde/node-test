@@ -1,0 +1,27 @@
+<div ng-if="vm.model.isLoaded()">
+    <div class="panel-heading">
+        <h2 class="fits-slim-margin">FIT {{vm.getFitType()}} Details</h2>
+    </div>
+    <collapsible-panel panel-title="FIT {{vm.getFitType()}} Information" model="vm.fitInfoPanelModel">
+        <div ui-view="fitInfo"></div>
+    </collapsible-panel>
+    <collapsible-panel panel-title="Current Tariff Information" model="vm.tariffPanelModel">
+        <div ui-view="tariffInfo"></div>
+    </collapsible-panel>
+    <collapsible-panel panel-title="Payment Recipient" model="vm.billingInfoPanelModel">
+        <div ui-view="paymentInfo"></div>
+    </collapsible-panel>
+    <collapsible-panel panel-title="Related FITs Installations/Extensions" model="vm.relatedInstallationsPanelModel">
+        <div ui-view="relatedInstallationsInfo"></div>
+    </collapsible-panel>
+    <collapsible-panel panel-title="Related Meters and Last Reads" model="vm.relatedMetersPanelModel">
+        <div ui-view="relatedMetersInfo"></div>
+    </collapsible-panel>
+    <collapsible-panel panel-title="Statements" model="vm.statementsPanelModel">
+        <div ui-view="statementsInfo"></div>
+    </collapsible-panel>
+    <div class="fits-button-group">
+        <button type="button" ng-click="vm.goEdit()" class="btn btn-default btn-fits">Edit</button>
+        <a class="btn btn-default btn-fits" ui-sref="fits.list">To FITs list</a>
+    </div>
+</div>

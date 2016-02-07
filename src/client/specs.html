@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <title>Spec Runner</title>
+
+    <style>
+        body {
+            font: 20px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding-left: 20px;
+        }
+    </style>
+
+    <!--BEWARE of using any app styles as @media can screw up tests -->
+
+    <link rel="stylesheet" href="/node_modules/mocha/mocha.css">
+
+</head>
+<body>
+
+<h1><a href="specs.html">Spec Runner</a></h1>
+
+<p><strong>Make sure the REMOTE server is running</strong><br/>
+    Click on a <em>description title</em> to narrow the scope to just its specs
+    (see "<a href="http://mochajs.github.io/mocha/#grep-option" target="_blank" title="MochaJS grep option">
+        ?grep</a>" in address bar).<br/>
+    Click on a <em>spec title</em> to see the test implementation.<br/>
+    Click on <em>page title</em> to start over.
+</p>
+
+<div id="mocha"></div>
+
+<!-- inject:testlibraries:js -->
+<script src="/node_modules/mocha/mocha.js"></script>
+<script src="/node_modules/chai/chai.js"></script>
+<script src="/node_modules/sinon-chai/lib/sinon-chai.js"></script>
+<!-- endinject -->
+
+<script>
+    expect = chai.expect;
+    AssertionError = chai.AssertionError;
+    mocha.setup('bdd');
+    mocha.traceIgnores = ['mocha.js', 'chai.js', 'angular.js'];
+</script>
+
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="/bower_components/angular-resource/angular-resource.js"></script>
+<script src="/bower_components/extras.angular.plus/ngplus-overlay.js"></script>
+<script src="/bower_components/moment/moment.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="/bower_components/toastr/toastr.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="/bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+<script src="/bower_components/lodash/lodash.js"></script>
+<script src="/bower_components/angular-mocks/angular-mocks.js"></script>
+<script src="/bower_components/sinon/index.js"></script>
+<script src="/bower_components/bardjs/dist/bard.js"></script>
+<script src="/bower_components/bardjs/dist/bard-ngRouteTester.js"></script>
+<!-- endbower -->
+
+<!-- inject:js -->
+<script src="/src/client/app/blocks/exception/exception.module.js"></script>
+<script src="/src/client/app/blocks/logger/logger.module.js"></script>
+<script src="/src/client/app/blocks/router/router.module.js"></script>
+<script src="/src/client/app/common/common.module.js"></script>
+<script src="/src/client/app/core/core.module.js"></script>
+<script src="/src/client/app/dashboard/dashboard.module.js"></script>
+<script src="/src/client/app/fits.module.js"></script>
+<script src="/src/client/app/fits/fits.module.js"></script>
+<script src="/src/client/app/layout/layout.module.js"></script>
+<script src="/src/client/app/remote/remote.module.js"></script>
+<script src="/src/client/app/widgets/widgets.module.js"></script>
+<script src="/src/client/app/3rdparty/angular.treeview.js"></script>
+<script src="/src/client/app/blocks/exception/exception-handler.provider.js"></script>
+<script src="/src/client/app/blocks/exception/exception.js"></script>
+<script src="/src/client/app/blocks/logger/logger.js"></script>
+<script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
+<script src="/src/client/app/common/modal/modal.window.model.js"></script>
+<script src="/src/client/app/common/search.panel/search.panel.model.js"></script>
+<script src="/src/client/app/core/config.js"></script>
+<script src="/src/client/app/core/configFactory.js"></script>
+<script src="/src/client/app/core/constants.js"></script>
+<script src="/src/client/app/core/core.route.js"></script>
+<script src="/src/client/app/core/dataservice.js"></script>
+<script src="/src/client/app/core/eventService.js"></script>
+<script src="/src/client/app/core/utils.service.js"></script>
+<script src="/src/client/app/dashboard/dashboard.controller.js"></script>
+<script src="/src/client/app/dashboard/dashboard.route.js"></script>
+<script src="/src/client/app/fits/detail/fits.detail.controller.js"></script>
+<script src="/src/client/app/fits/fits.controller.js"></script>
+<script src="/src/client/app/fits/fits.model.js"></script>
+<script src="/src/client/app/fits/fits.route.js"></script>
+<script src="/src/client/app/fits/modal/fits.modal.controller.js"></script>
+<script src="/src/client/app/fits/view/fits.view.controller.js"></script>
+<script src="/src/client/app/layout/navbar.controller.js"></script>
+<script src="/src/client/app/layout/shell.controller.js"></script>
+<script src="/src/client/app/remote/resources/fits.resource.js"></script>
+<script src="/src/client/app/remote/services/base.service.js"></script>
+<script src="/src/client/app/remote/services/fits.modal.service.js"></script>
+<script src="/src/client/app/remote/services/fits.service.js"></script>
+<script src="/src/client/app/widgets/activeReadTimeWindow/activeReadTimeWindow.directive.js"></script>
+<script src="/src/client/app/widgets/collapsiblePanel/collapsiblePanel.directive.js"></script>
+<script src="/src/client/app/widgets/fitContentResize/fitContentResize.directive.js"></script>
+<script src="/src/client/app/widgets/fitDate/fitDate.directive.js"></script>
+<script src="/src/client/app/widgets/fitInput/fitInput.directive.js"></script>
+<script src="/src/client/app/widgets/fitOutput/fitOutput.directive.js"></script>
+<script src="/src/client/app/widgets/fitPanel/fitPanel.directive.js"></script>
+<script src="/src/client/app/widgets/fitReadsTable/fitReadsTable.directive.js"></script>
+<script src="/src/client/app/widgets/fitSearchFilter/fitSearchFilter.directive.js"></script>
+<script src="/src/client/app/widgets/fitSelect/fitSelect.directive.js"></script>
+<script src="/src/client/app/widgets/fitStatements/fit.statements.directive.js"></script>
+<script src="/src/client/app/widgets/fitTable/fitTable.directive.js"></script>
+<!-- endinject -->
+
+<!-- inject:spechelpers:js -->
+<script src="/src/client/test-helpers/billinginfo-data.js"></script>
+<script src="/src/client/test-helpers/bind-polyfill.js"></script>
+<script src="/src/client/test-helpers/calculations-data.js"></script>
+<script src="/src/client/test-helpers/financial-years-data.js"></script>
+<script src="/src/client/test-helpers/fits-data.js"></script>
+<script src="/src/client/test-helpers/generators-data.js"></script>
+<script src="/src/client/test-helpers/generatorstatuses-data.js"></script>
+<script src="/src/client/test-helpers/meters-data.js"></script>
+<script src="/src/client/test-helpers/mock-data.js"></script>
+<script src="/src/client/test-helpers/quarters-data.js"></script>
+<script src="/src/client/test-helpers/read-types-data.js"></script>
+<script src="/src/client/test-helpers/reads-data.js"></script>
+<script src="/src/client/test-helpers/reads-history-data.js"></script>
+<script src="/src/client/test-helpers/reports-data.js"></script>
+<script src="/src/client/test-helpers/statements-data.js"></script>
+<script src="/src/client/test-helpers/telephonetypes-data.js"></script>
+<script src="/src/client/test-helpers/titles-data.js"></script>
+<script src="/src/client/test-helpers/tolerance-data.js"></script>
+<!-- endinject -->
+
+<!-- inject:specs:js -->
+<script src="/src/client/app/blocks/exception/exception-handler.provider.spec.js"></script>
+<script src="/src/client/app/common/modal/modal.window.model.spec.js"></script>
+<script src="/src/client/app/common/search.panel/search.panel.model.spec.js"></script>
+<script src="/src/client/app/core/configFactory.spec.js"></script>
+<script src="/src/client/app/core/core.route.spec.js"></script>
+<script src="/src/client/app/core/eventService.spec.js"></script>
+<script src="/src/client/app/core/utils.service.spec.js"></script>
+<script src="/src/client/app/dashboard/dashboard.controller.spec.js"></script>
+<script src="/src/client/app/dashboard/dashboard.route.spec.js"></script>
+<script src="/src/client/app/fits/detail/fits.detail.controller.spec.js"></script>
+<script src="/src/client/app/fits/fits.controller.spec.js"></script>
+<script src="/src/client/app/fits/fits.model.spec.js"></script>
+<script src="/src/client/app/fits/fits.route.spec.js"></script>
+<script src="/src/client/app/fits/modal/fits.modal.controller.spec.js"></script>
+<script src="/src/client/app/fits/view/fits.view.controller.spec.js"></script>
+<script src="/src/client/app/layout/navbar.controller.spec.js"></script>
+<script src="/src/client/app/layout/shell.controller.spec.js"></script>
+<script src="/src/client/app/remote/services/base.service.spec.js"></script>
+<script src="/src/client/app/remote/services/fits.modal.service.spec.js"></script>
+<script src="/src/client/app/remote/services/fits.service.spec.js"></script>
+<script src="/src/client/app/widgets/activeReadTimeWindow/activeReadTimeWindow.directive.spec.js"></script>
+<script src="/src/client/app/widgets/collapsiblePanel/collapsiblePanel.directive.spec.js"></script>
+<script src="/src/client/app/widgets/fitContentResize/fitContentResize.directive.spec.js"></script>
+<script src="/src/client/app/widgets/fitDate/fitDate.directive.spec.js"></script>
+<script src="/src/client/app/widgets/fitInput/fitInput.directive.spec.js"></script>
+<script src="/src/client/app/widgets/fitOutput/fitOutput.directive.spec.js"></script>
+<script src="/src/client/app/widgets/fitPanel/fitPanel.directive.spec.js"></script>
+<script src="/src/client/app/widgets/fitReadsTable/fitReadsTable.directive.spec.js"></script>
+<script src="/src/client/app/widgets/fitSearchFilter/fitSearchFilter.directive.spec.js"></script>
+<script src="/src/client/app/widgets/fitSelect/fitSelect.directive.spec.js"></script>
+<script src="/src/client/app/widgets/fitStatements/fit.statements.directive.spec.js"></script>
+<script src="/src/client/app/widgets/fitTable/fitTable.directive.spec.js"></script>
+<!-- endinject -->
+
+<!-- inject:templates:js -->
+<script src="/.tmp/templates.js"></script>
+<!-- endinject -->
+
+<script>
+    mocha.run();
+</script>
+
+</body>
+</html>

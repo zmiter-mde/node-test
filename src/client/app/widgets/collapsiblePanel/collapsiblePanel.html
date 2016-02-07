@@ -1,0 +1,11 @@
+<div class="collapsible-panel-group">
+    <div class="panel">
+        <div class="panel-heading collapsible-panel-heading" ng-click="vm.toggleCollapse()">
+            <h3 class="fits-slim-margin">{{vm.panelTitle}}
+                <i class="indicator glyphicon pull-right" ng-class="vm.getCollapseIcon(vm.model.isCollapsed)"></i></h3>
+        </div>
+        <div class="panel-body" uib-collapse="vm.model.isCollapsed">
+            <div ng-transclude></div>
+        </div>
+    </div>
+</div>

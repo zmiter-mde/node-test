@@ -1,0 +1,14 @@
+<div class="row">
+    <label class="col-xs-3 control-label text-wrap" for="{{vm.id}}">{{vm.label}}</label>
+
+    <div class="col-xs-9">
+        <select id="{{vm.id}}" class="form-control fits-dropdown"
+                ng-disabled="vm.inactive"
+                ng-model="vm.model"
+                ng-options="vm.getText(option) for option in vm.options"
+                ng-change="vm.updateModel()"
+                ng-init="vm.init()">
+            <option ng-show="vm.hasDefaultOption()" value=""></option>
+        </select>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="search-result list-group">
+    <div ng-if="vm.model.isEmptyResult">
+        <h2>There are no results matched to the search criteria</h2>
+    </div>
+    <fit-table model="vm.model" page-changed="vm.pageChanged()">
+        <fit-header>
+            <table class="table-header table">
+                <thead>
+                <tr>
+                    <th class="col-md-2">Address</th>
+                    <th class="col-md-2">Post Code</th>
+                    <th class="col-md-2">Generator Reference</th>
+                    <th class="col-md-2">FIT Reference</th>
+                    <th class="col-md-2">Is Excluded</th>
+                </tr>
+                </thead>
+            </table>
+        </fit-header>
+        <fit-body>
+            <table class="table table-striped">
+                <tbody>
+                <tr ng-repeat="fit in vm.model.foundModels" ng-click="vm.openFit(fit)" class="vertical-middle">
+                    <td class="col-md-2">{{fit.addressLine1}}</td>
+                    <td class="col-md-2">{{fit.postCode}}</td>
+                    <td class="col-md-2">{{fit.generator.ofgemGeneratorId}}</td>
+                    <td class="col-md-2">{{fit.ofgemFitId}}</td>
+                    <td class="col-md-2">
+                        <div class="col-md-3">
+                            <input class="form-control" type="checkbox"
+                                   style="margin: 0"
+                                   ng-model="fit.isExcluded"
+                                   ng-show="vm.isActiveQuarter()"
+                                   ng-click="$event.stopPropagation();"/>
+                            <h4 ng-hide="vm.isActiveQuarter()">
+                                <span class="glyphicon {{vm.getBooleanGlyphClass(fit.isExcluded)}}"></span>
+                            </h4>
+                        </div>
+                        <div class="col-md-6">
+                            <button ng-show="vm.isActiveQuarter()"
+                                    type="submit" ng-click="vm.save(fit, $event)" class="btn btn-default btn-fits">
+                                Save Fit Exclusion
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </fit-body>
+    </fit-table>
+</div>

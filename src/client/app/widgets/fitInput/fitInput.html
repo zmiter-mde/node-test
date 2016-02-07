@@ -1,0 +1,10 @@
+<div class="row">
+    <label class="col-xs-3 control-label text-wrap" for="{{vm.attrId}}">{{vm.label}}</label>
+
+    <div class="col-xs-9">
+        <input ng-required="vm.required" id="{{vm.attrId}}" class="form-control" ng-class="vm.class" type="{{vm.type}}"
+               maxlength="{{vm.maxlength}}" pattern="{{vm.pattern}}" name="{{vm.name}}"
+               ng-model="vm.model[vm.attrId]" placeholder="{{vm.placeholder}}" ng-focus="vm.onChange(vm.model)"
+               ng-disabled="vm.disabled"/>
+    </div>
+</div>

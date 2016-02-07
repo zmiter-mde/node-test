@@ -1,0 +1,34 @@
+<div class="panel-body">
+    <div class="width-50 lefted">
+        <fit-output label="FIT Reference" attr-id="ofgemFitId" model="vm.model.currentModel"></fit-output>
+        <fit-output label="FIT Status" attr-id="fitStatusName" model="vm.model.currentModel.fitStatus"></fit-output>
+        <fit-output label="Energy a/c" attr-id="externalAccountId" model="vm.model.currentModel"></fit-output>
+        <fit-output label="Address Line 1" attr-id="addressLine1" model="vm.model.currentModel.billingInfo"></fit-output>
+        <fit-output label="Address Line 2" attr-id="addressLine2" model="vm.model.currentModel.billingInfo"></fit-output>
+        <fit-output label="Address Line 3" attr-id="addressLine3" model="vm.model.currentModel.billingInfo"></fit-output>
+        <fit-output label="Town" attr-id="town" model="vm.model.currentModel.billingInfo"></fit-output>
+        <fit-output label="Country" attr-id="country" model="vm.model.currentModel.billingInfo"></fit-output>
+        <fit-output label="County" attr-id="county" model="vm.model.currentModel.billingInfo"></fit-output>
+        <fit-output label="Post Code" attr-id="postCode" model="vm.model.currentModel.billingInfo"></fit-output>
+        <fit-output label="MCS Certificate Number" attr-id="mcsCertificateNumber" model="vm.model.currentModel"></fit-output>
+        <fit-output label="MCS EAG" attr-id="mcsEstAnnualGenerationKw" model="vm.model.currentModel"></fit-output>
+        <fit-output label="Total Installed Capacity" attr-id="totalInstallCapacity" model="vm.model.currentModel"></fit-output>
+        <fit-output label="Declared Net Capacity" attr-id="declaredNetCapacity" model="vm.model.currentModel"></fit-output>
+    </div>
+    <div class="row width-50 lefted">
+        <fit-output label="Generator Reference" attr-id="ofgemGeneratorId" model="vm.model.currentModel.generator" type="link"
+                    on-click="vm.openGeneratorView(vm.model.currentModel.generator.generatorId)"></fit-output>
+        <fit-output label="Technology Type" attr-id="technologyName" model="vm.model.currentModel.technologyType"></fit-output>
+        <fit-output label="Standalone" attr-id="isStandAloneExtension" model="vm.model.currentModel" type="checkbox"></fit-output>
+        <fit-output label="Eligibility Start Date" attr-id="eligibilityStartDate" model="vm.model.currentModel" type="date"></fit-output>
+        <fit-output label="Eligibility End Date" attr-id="eligibilityEndDate" model="vm.model.currentModel" type="date"></fit-output>
+        <fit-output label="Application Start Date" attr-id="applicationStartDate" model="vm.model.currentModel" type="date"></fit-output>
+        <fit-output label="Application End Date" attr-id="applicationEndDate" model="vm.model.currentModel" type="date"></fit-output>
+        <fit-output label="Confirmation Date" attr-id="ofgemConfirmationDate" model="vm.model.currentModel" type="date"></fit-output>
+        <fit-output label="RO Accreditation" attr-id="roAccreditation" model="vm.model.currentModel"></fit-output>
+        <fit-output label="Import MPAN" attr-id="importMpan" model="vm.model.currentModel"></fit-output>
+        <fit-output label="Export MPAN" attr-id="exportMpan" model="vm.model.currentModel"></fit-output>
+        <fit-output label="Public Grant" attr-id="publicGrantInPounds" model="vm.model.currentModel"></fit-output>
+        <fit-output label="Ordering Survey (OS) Reference" attr-id="osGridRef" model="vm.model.currentModel"></fit-output>
+    </div>
+</div>

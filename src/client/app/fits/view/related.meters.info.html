@@ -1,0 +1,30 @@
+<div class="panel-body">
+    <div class="calculations-run-list">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th class="col-md-1">MSN</th>
+                <th class="col-md-1">Meter Location</th>
+                <th class="col-md-1">Is Export Meter</th>
+                <th class="col-md-2">Read for Current Quarter</th>
+                <th class="col-md-1">Read Date</th>
+                <th class="col-md-2">Last Valid Paid Read</th>
+                <th class="col-md-1">Read Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="meterInfo  in vm.model.relatedMetersInfo">
+                <td class="col-md-1">
+                    <a class="btn btn-default btn-fits" ng-click="vm.openMeterView(meterInfo.meter.meterId)">{{meterInfo.meter.meterSerialNumber}}</a>
+                </td>
+                <td class="col-md-1">{{meterInfo.meter.meterLocation}}</td>
+                <td class="col-md-1"><span class="glyphicon {{vm.getBooleanGlyphClass(meterInfo.meter.isExportMeter)}}"></span></td>
+                <td class="col-md-1" ng-class="vm.getReadColorStyle(meterInfo.lastRead)">{{vm.getReadValue(meterInfo.lastRead)}}</td>
+                <td class="col-md-1">{{vm.getReadDate(meterInfo.lastRead) | date : 'dd/MM/yyyy'}} </td>
+                <td class="col-md-1" ng-class="vm.getReadColorStyle(meterInfo.lastPayedRead)">{{vm.getReadValue(meterInfo.lastPayedRead)}}</td>
+                <td class="col-md-1">{{vm.getReadDate(meterInfo.lastPayedRead) | date : 'dd/MM/yyyy'}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

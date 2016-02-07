@@ -1,0 +1,246 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.firstutility.fits</groupId>
+    <artifactId>fits-portal</artifactId>
+    <version>1.0.13-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>FITs Portal</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <java.version>1.8</java.version>
+        <tomcat.plugin.port>8770</tomcat.plugin.port>
+
+        <spring.version>4.2.0.RELEASE</spring.version>
+        <jackson.version>2.2.3</jackson.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+
+        <plugins>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>0.0.26</version>
+
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <configuration>
+                            <nodeVersion>v5.0.0</nodeVersion>
+                            <npmVersion>3.3.9</npmVersion>
+                            <nodeDownloadRoot>file:////${project.basedir}/dist/node/</nodeDownloadRoot>
+                            <npmDownloadRoot>file:////${project.basedir}/dist/npm/</npmDownloadRoot>
+                        </configuration>
+                    </execution>
+
+                    <!--<execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        &lt;!&ndash; Optional configuration which provides for running any npm command &ndash;&gt;
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>bower install</id>
+                        <goals>
+                            <goal>bower</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>-->
+                    <execution>
+                        <id>gulp build</id>
+                        <goals>
+                            <goal>gulp</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <arguments>build-skip-tests</arguments>
+                            <!--<arguments>build</arguments>-->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <port>${tomcat.plugin.port}</port>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <directory>build</directory>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+
+
+    <scm>
+        <connection>scm:git:ssh://git@git.impello.co.uk:7999/fits/fits-portal.git</connection>
+        <developerConnection>scm:git:ssh://git@git.impello.co.uk:7999/fits/fits-portal.git</developerConnection>
+        <url>https://git.impello.co.uk/projects/FITS/repos/fits-portal/browse</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>libs-release-local</id>
+            <url>http://build-repo-dc2.prod.impello.co.uk:8081/artifactory/libs-release-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>libs-snapshot-local</id>
+            <url>http://build-repo-dc2.prod.impello.co.uk:8081/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>maven-central</id>
+            <name>Maven Central</name>
+            <url>http://central.maven.org/maven2</url>
+        </repository>
+        <repository>
+            <id>fu-central</id>
+            <name>libs-release</name>
+            <url>http://build-repo-dc2.prod.impello.co.uk:8081/artifactory/repo</url>
+        </repository>
+        <repository>
+            <id>fu-snapshots</id>
+            <name>libs-snapshot</name>
+            <url>http://build-repo-dc2.prod.impello.co.uk:8081/artifactory/repo</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <name>Maven Plugin Repository</name>
+            <url>http://repo1.maven.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </pluginRepository>
+        <pluginRepository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>fu-central</id>
+            <name>plugins-release</name>
+            <url>http://build-repo-dc2.prod.impello.co.uk:8081/artifactory/plugins-release</url>
+        </pluginRepository>
+        <pluginRepository>
+            <snapshots />
+            <id>fu-snapshots</id>
+            <name>plugins-snapshot</name>
+            <url>http://build-repo-dc2.prod.impello.co.uk:8081/artifactory/plugins-snapshot</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>

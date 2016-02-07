@@ -1,0 +1,13 @@
+<div class="row" ng-show="vm.fitHasExtensions()">
+    <label class="col-sm-5 control-label">Fit Extensions</label>
+    <button ng-repeat="fit in vm.model.currentModel.fitExtensions" class="btn btn-default btn-fits"
+            type="button" ng-click="vm.openFit(fit.fitId)">{{fit.ofgemFitId}}
+    </button>
+</div>
+<div class="row" ng-show="vm.fitHasParent()">
+    <label class="col-sm-5 control-label text-wrap">FIT Installation Reference</label>
+    <button class="btn btn-default btn-fits"
+            type="button" ng-click="vm.openFit(vm.model.currentModel.parentFit.fitId)">
+        {{vm.model.currentModel.parentFit.ofgemFitId}}
+    </button>
+</div>

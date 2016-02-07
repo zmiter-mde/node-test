@@ -1,0 +1,33 @@
+<fit-input attr-id="ofgemFitId" label="FIT Reference" model="vm.model.currentModel" disabled="true"></fit-input>
+<!-- Place for Energy a/c -->
+<fit-input attr-id="externalAccountId" label="Energy a/c" model="vm.model.currentModel" disabled="true"></fit-input>
+<fit-input attr-id="fitStatusName" label="FIT Status" model="vm.model.currentModel.fitStatus" disabled="true"></fit-input>
+<fit-input attr-id="firstName" label="First Name" model="vm.model.currentModel.billingInfo" disabled="true"></fit-input>
+<fit-input attr-id="lastName" label="Last Name" model="vm.model.currentModel.billingInfo" disabled="true"></fit-input>
+<fit-date attr-id="eligibilityStartDate" label="Eligibility Start Date" model="vm.model.currentModel" disabled="true"></fit-date>
+<fit-date attr-id="eligibilityEndDate" label="Eligibility End Date" model="vm.model.currentModel" disabled="true"></fit-date>
+<fit-date attr-id="applicationStartDate" label="Application Start Date" model="vm.model.currentModel" disabled="true"></fit-date> <!-- Probably not quite correct application start date -->
+<fit-date attr-id="applicationEndDate" label="Application End Date" model="vm.model.currentModel" min-date="vm.model.currentModel.applicationStartDate"></fit-date>
+<fit-date attr-id="ofgemConfirmationDate" label="Confirmation Date" model="vm.model.currentModel" disabled="true"></fit-date>
+<!-- Place for Input date -->
+<fit-input attr-id="technologyName" label="Technology Type" model="vm.model.currentModel.technologyType" disabled="true"></fit-input>
+<fit-input attr-id="mcsCertificateNumber" label="MCS Certificate Number" model="vm.model.currentModel" disabled="true"></fit-input>
+<fit-input attr-id="mcsEstAnnualGenerationKw" label="MCS EAG" model="vm.model.currentModel" pattern="^([0-9]*\.?[0-9]+)$" maxlength="50"></fit-input>
+<fit-input attr-id="totalInstallCapacity" label="Total Installed Capacity" model="vm.model.currentModel" disabled="true"></fit-input>
+<fit-input attr-id="declaredNetCapacity" label="Declared Net Capacity" model="vm.model.currentModel" disabled="true"></fit-input>
+<fit-input attr-id="roAccreditation" label="RO Accreditation" model="vm.model.currentModel" disabled="true"></fit-input>
+<fit-input attr-id="importMpan" label="Import MPAN" model="vm.model.currentModel" disabled="true"></fit-input>
+<fit-input attr-id="exportMpan" label="Export MPAN" model="vm.model.currentModel" disabled="true"></fit-input> <!-- 13 digits -->
+<fit-input attr-id="isStandAloneExtension" label="Standalone" model="vm.model.currentModel" disabled="true" type="checkbox"></fit-input>
+<fit-input attr-id="publicGrantInPounds" label="Public Grant" model="vm.model.currentModel" pattern="^([0-9]*\.?[0-9]+)$" maxlength="50"></fit-input> <!-- yes/no boolean -->
+<fit-input attr-id="osGridRef" label="Ordering Survey (OS) Reference" model="vm.model.currentModel" disabled="true"></fit-input>
+<fit-input attr-id="tariffName" label="Generation Tariff Name" model="vm.model.currentModel.generatorTariff" disabled="true"></fit-input>
+<fit-input attr-id="tariffName" label="Export Tariff Name" model="vm.model.currentModel.exportTariff" disabled="true"></fit-input>
+<fit-date attr-id="tariffAllocationDateCalculation" label="Generation Tariff Allocation Date" model="vm.model.currentModel" disabled="true"></fit-date>
+<fit-date attr-id="rateStartDate" label="Generation Rate Start Date" model="vm.model.currentModel.generationTariffRate" disabled="true"></fit-date>
+<fit-date attr-id="rateStartDate" label="Export Rate Start Date" model="vm.model.currentModel.exportTariffRate" disabled="true"></fit-date>
+<fit-date attr-id="rateEndDate" label="Generation Rate End Date" model="vm.model.currentModel.generationTariffRate" disabled="true"></fit-date>
+<fit-date attr-id="rateEndDate" label="Export Rate End Date" model="vm.model.currentModel.exportTariffRate" disabled="true"></fit-date>
+<fit-input attr-id="rate" label="Generation Rate" model="vm.model.currentModel.generationTariffRate" disabled="true"></fit-input>
+<fit-input attr-id="rate" label="Export Rate" model="vm.model.currentModel.exportTariffRate" disabled="true"></fit-input>
+<fit-input attr-id="exportProportion" label="Export Proportion" model="vm.model.currentModel" disabled="true"></fit-input>

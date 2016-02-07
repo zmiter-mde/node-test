@@ -1,0 +1,23 @@
+<div class="panel-body">
+    <div class="width-50 lefted">
+        <div class="row">
+            <div class="glyph-button">
+                <a class="btn btn-default btn-fits"
+                   ng-click="vm.changeBillingInfo()"
+                   uib-tooltip="Change Payment Recipient" tooltip-placement="right">
+                    <span class="fa fa-exchange" aria-hidden="true"></span>
+                </a>
+            </div>
+            <label><h4>Change Payment recipient</h4></label>
+        </div>
+        <fit-output label="Is Nominated Recipient" attr-id="isNominatedRecipient" model="vm.model.currentModel" type="checkbox"></fit-output>
+        <fit-output label="Bank Account Name" attr-id="nameOfBankAccount" model="vm.model.currentModel.billingInfo"></fit-output>
+        <fit-output label="Bank Account Number" attr-id="bankAccountNumber" model="vm.model.currentModel.billingInfo"></fit-output>
+        <fit-output label="Sort Code" attr-id="sortCode" model="vm.model.currentModel.billingInfo"></fit-output>
+    </div>
+    <div class="row width-50 lefted">
+        <fit-output label="Payee First Name" attr-id="firstName" model="vm.model.currentModel.billingInfo"></fit-output>
+        <fit-output label="Payee Last Name" attr-id="lastName" model="vm.model.currentModel.billingInfo"></fit-output>
+        <fit-output label="Role Number" attr-id="buildingSocietyRollNumber" model="vm.model.currentModel.billingInfo"></fit-output>
+    </div>
+</div>

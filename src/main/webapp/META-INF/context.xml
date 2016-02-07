@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+
+    <ResourceLink name="fits-engine-url" global="fits-engine-url" type="java.lang.String"/>
+
+</Context>

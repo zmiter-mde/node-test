@@ -1,0 +1,40 @@
+<div class="panel-body">
+    <div class="calculations-run-list">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th class="col-md-1">FIT Reference</th>
+                <th class="col-md-1">FIT Status</th>
+                <th class="col-md-1">Technology Type</th>
+                <th class="col-md-1">Site Address</th>
+                <th class="col-md-1">Eligibility Start Date</th>
+                <th class="col-md-1">Application Start Date</th>
+                <th class="col-md-1">Application End Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-if="vm.model.currentModel.parentFit">
+                <td class="col-md-1">
+                    <a class="btn btn-default btn-fits" ng-click="vm.openFitView(vm.model.currentModel.parentFit.fitId)">{{vm.model.currentModel.parentFit.ofgemFitId}}</a>
+                </td>
+                <td class="col-md-1">{{vm.model.currentModel.parentFit.fitStatus.fitStatusName}}</td>
+                <td class="col-md-1">{{vm.model.currentModel.parentFit.technologyType.technologyName}}</td>
+                <td class="col-md-1">{{vm.model.currentModel.parentFit.billingInfo.addressLine1}}</td>
+                <td class="col-md-1">{{vm.model.currentModel.parentFit.eligibilityStartDate | date : 'dd/MM/yyyy'}}</td>
+                <td class="col-md-1">{{vm.model.currentModel.parentFit.applicationStartDate | date : 'dd/MM/yyyy'}}</td>
+                <td class="col-md-1">{{vm.model.currentModel.parentFit.applicationEndDate | date : 'dd/MM/yyyy'}}</td>
+            </tr>
+            <tr ng-repeat="fit  in vm.model.currentModel.fitExtensions | orderBy:'fit.ofgemFitId'">
+                <td class="col-md-1"><a class="btn btn-default btn-fits"
+                                        ng-click="vm.openFitView(fit.fitId)">{{fit.ofgemFitId}}</a></td>
+                <td class="col-md-1">{{fit.fitStatus.fitStatusName}}</td>
+                <td class="col-md-1">{{fit.technologyType.technologyName}}</td>
+                <td class="col-md-1">{{fit.billingInfo.addressLine1}}</td>
+                <td class="col-md-1">{{fit.eligibilityStartDate | date : 'dd/MM/yyyy'}}</td>
+                <td class="col-md-1">{{fit.applicationStartDate | date : 'dd/MM/yyyy'}}</td>
+                <td class="col-md-1">{{fit.applicationEndDate | date : 'dd/MM/yyyy'}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

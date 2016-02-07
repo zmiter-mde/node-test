@@ -1,0 +1,27 @@
+<table class="table table-striped {{vm.validity}}" ng-show="vm.model.length > 0">
+    <thead>
+    <th>FIT Id</th>
+    <th>Account Id</th>
+    <th>Generator Id</th>
+    <th>Serial Number</th>
+    <th>Read Date</th>
+    <th>Read Value</th>
+    <th>Read Type</th>
+    <th class="width-40">Comment</th>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in vm.model" class="vertical-middle">
+        <td>{{item.parsedReadData.ofgemFitId}}</td>
+        <td>{{item.parsedReadData.externalAccountId}}</td>
+        <td>{{item.parsedReadData.ofgemGeneratorId}}</td>
+        <td>{{item.parsedReadData.meterSerialNumber}}</td>
+        <td>
+            {{item.parsedReadData.readDate.dayOfMonth}}/{{item.parsedReadData.readDate.monthValue}}/{{item.parsedReadData.readDate.year}}
+        </td>
+        <td>{{item.parsedReadData.readValue}}</td>
+        <td>{{item.parsedReadData.readType}}</td>
+        <td>{{item.validationResult}}</td>
+    </tr>
+    </tbody>
+</table>
+<h3 ng-show="vm.model.length === 0">No Reads</h3>

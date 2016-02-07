@@ -1,0 +1,19 @@
+<div class="row">
+    <div ng-repeat="columns in vm.fields" class="col-md-4">
+        <div ng-repeat="field in columns" ng-switch="field.type">
+            <fit-input ng-switch-when="text" attr-id="{{field.name}}" label="{{field.label}}"
+                       placeholder="{{field.preselected}}" on-change="vm.preselect(field, vm.model)"
+                       model="vm.model" required="{{field.required}}"></fit-input>
+            <fit-date
+                    ng-switch-when="date" attr-id="{{field.name}}" label="{{field.label}}"
+                    on-change="field.onChange(model, attrId, date)" model="vm.model">
+            </fit-date>
+            <fit-select
+                    ng-switch-when="select" init-select="field.init" model="field.model"
+                    get-option-text="field.nameFunction" attr-id="{{field.name}}" options="field.options"
+                    label="{{field.label}}"
+                    on-change="field.onChange(model)" default-option="{{vm.hasDefaultSelectOption(field)}}">
+            </fit-select>
+        </div>
+    </div>
+</div>

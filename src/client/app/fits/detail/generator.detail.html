@@ -1,0 +1,17 @@
+<h3 class="row">
+    <div class="glyph-button">
+        <a class="btn btn-default btn-fits"
+           ui-sref="generators.detail({generatorId: '{{vm.model.currentModel.generator.generatorId}}'})"
+           uib-tooltip="Go to Generator info" tooltip-placement="right">
+            <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+        </a>
+    </div>
+    <small>Generator info:</small>
+</h3>
+<div class="row">
+    <label class="col-sm-3 control-label text-wrap" for="generatorRef">Generator Reference</label>
+
+    <div class="col-sm-9">
+        <span id="generatorRef">{{vm.model.currentModel.generator.ofgemGeneratorId}}</span>
+    </div>
+</div>

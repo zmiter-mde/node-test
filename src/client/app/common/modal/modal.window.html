@@ -1,0 +1,12 @@
+<div class="container-fluid {{modal.getStyleClass(modal.model.warningResponse)}} img-rounded">
+    <div class="modal-body">
+        <h3>
+            <span ng-class="modal.getIconClass(modal.model.warningResponse)" aria-hidden="true"></span>
+            <span ng-bind-html="modal.model.message"></span>
+        </h3>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default btn-fits btn-danger" type="button" ng-click="modal.ok()" ng-disabled="modal.fatalError">OK</button>
+        <button class="btn btn-default btn-fits" type="button" ng-click="modal.cancel()">Cancel</button>
+    </div>
+</div>

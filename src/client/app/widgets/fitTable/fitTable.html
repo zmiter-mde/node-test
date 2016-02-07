@@ -1,0 +1,29 @@
+<div class="search-result" ng-if="vm.model.foundModels.length > 0">
+    <div class="row" ng-if="vm.hasPagination">
+        <div class="row vertical-align pagination-row">
+            <uib-pagination ng-if="vm.hasMultiplePages()"
+                            ng-model="vm.model.currentPage"
+                            total-items="vm.model.totalModelsCount"
+                            max-size="10"
+                            items-per-page="vm.model.searchModel.limit"
+                            previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"
+                            boundary-links="true"
+                            ng-change="vm.pageChanged()">
+            </uib-pagination>
+            <label class="pagination-label" ng-if="vm.hasMultiplePages()">Total Pages: {{vm.getTotalPagesCount()}}</label>
+            <label class="pagination-label">Total Items: {{vm.model.totalModelsCount}}</label>
+        </div>
+        <div class="vertical-align pull-right pagination-row">
+            <label class="pagination-label" for="paginationLabel">Show Records</label>
+            <select id="paginationLabel"
+                    class="form-control pagination-select"
+                    ng-model="vm.model.searchModel.limit" ng-options="option for option in vm.countPerPageOptions"
+                    ng-change="vm.paginationCountChanged()">
+            </select>
+        </div>
+    </div>
+    <div ng-transclude="header"></div>
+    <div class="table-body" fit-content-resize dynamic-resize="{{vm.dynamicResize}}" margin-bottom="{{vm.marginBottom}}">
+        <div ng-transclude="body"></div>
+    </div>
+</div>

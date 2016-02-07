@@ -1,0 +1,19 @@
+<div class="row">
+    <label class="col-sm-3 control-label text-wrap" for="{{vm.attrId}}">{{vm.label}}</label>
+
+    <div class="col-sm-9">
+        <p class="input-group">
+            <input id="{{vm.attrId}}" ng-disabled="true" type="text" class="form-control"
+                   min-date="vm.minDate"
+                   max-date="vm.maxDate"
+                   uib-datepicker-popup="{{format}}" ng-model="vm.date" is-open="vm.opened" ng-change="vm.updateModel()"
+                   show-button-bar="vm.showButtonBar"
+                   datepicker-options="dateOptions" ng-required="vm.required"/>
+              <span class="input-group-btn">
+                <button ng-disabled="vm.disabled" type="button" class="btn btn-default btn-fits"
+                        ng-click="vm.toggleOpen()"><i
+                        class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+        </p>
+    </div>
+</div>

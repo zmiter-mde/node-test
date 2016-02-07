@@ -1,0 +1,41 @@
+<div ng-if="vm.model.isEmptyResult">
+    <h2>No Statements Found</h2>
+</div>
+<fit-table model="vm.model" show-pagination="{{vm.showPagination}}" page-changed="vm.pageChanged()"
+           dynamic-resize="{{vm.dynamicResize}}">
+    <fit-header>
+        <table class="table-header table">
+            <thead>
+            <tr>
+                <th class="col-md-2">Statement Run</th>
+                <th class="col-md-1">Generator Reference</th>
+                <th class="col-md-2">FITs</th>
+                <th class="col-md-1">Payment Due Date</th>
+                <th class="col-md-1">Generation Payments Due, &pound;</th>
+                <th class="col-md-1">Export Payments Due (inc. VAT), &pound;</th>
+                <th class="col-md-1">Total Payments Due, &pound;</th>
+            </tr>
+            </thead>
+        </table>
+    </fit-header>
+    <fit-body>
+        <table class="table table-striped non-selectable-rows">
+            <tbody>
+            <tr ng-repeat="statement in vm.model.foundModels" class="vertical-middle">
+                <td class="col-md-2">{{vm.getStatementString(statement.calculationRun)}}</td>
+                <td class="col-md-1"><a class="btn btn-default btn-fits" ng-click="vm.goToGenerator(statement.generator.generatorId)">
+                    {{statement.generator.ofgemGeneratorId}}</a>
+                </td>
+                <td class="col-md-2"><a ng-repeat="fit in statement.fits" class="btn btn-default btn-fits"
+                                        ng-click="vm.goToFit(fit.fitId)">
+                    {{fit.ofgemFitId}}</a>
+                </td>
+                <td class="col-md-1">{{statement.paymentDate | date : 'dd/MM/yyyy'}}</td>
+                <td class="col-md-1">{{statement.generationPayment}}</td>
+                <td class="col-md-1">{{statement.exportPayment}}</td>
+                <td class="col-md-1">{{statement.totalPayment}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </fit-body>
+</fit-table>

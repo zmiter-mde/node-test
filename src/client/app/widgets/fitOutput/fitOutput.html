@@ -1,0 +1,16 @@
+<div class="row">
+    <label class="col-xs-5 control-label text-wrap" for="{{vm.attrId}}"><h4>{{vm.label}}</h4></label>
+    <div class="col-xs-5" ng-switch="vm.type" id="{{vm.attrId}}" ng-class="vm.class">
+        <span class="line" ng-switch-when="text">
+            {{vm.model[vm.attrId]}}
+        </span>
+        <h4 ng-switch-when="checkbox">
+            <span class="glyphicon" ng-class="vm.getBooleanGlyphClass(vm.model[vm.attrId])"></span>
+        </h4>
+        <span class="line" ng-switch-when="date">
+            {{vm.model[vm.attrId] | date : 'dd/MM/yyyy'}}
+        </span>
+        <a class="btn btn-default btn-fits" ng-switch-when="link"
+           ng-click="vm.onClick(vm.model)">{{vm.model[vm.attrId]}}</a>
+    </div>
+</div>

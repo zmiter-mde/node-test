@@ -1,0 +1,5 @@
+<div class="panel-body">
+    <fit-statements model="vm.model.relatedStatementsModel" show-pagination="false" dynamic-resize="false"></fit-statements>
+    <a class="btn btn-default btn-fits" ng-if="!vm.model.relatedStatementsModel.isEmptyResult"
+       ng-click="vm.goViewMoreStatements()">View More Statements</a>
+</div>

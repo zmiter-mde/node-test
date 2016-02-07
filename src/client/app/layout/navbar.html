@@ -1,0 +1,21 @@
+<nav ng-controller="NavbarController as vm" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li ng-repeat="route in vm.navRoutes" ng-class="vm.isCurrent(route)" uib-dropdown>
+                    <a ng-if="!vm.hasChilds(route)" ui-sref="{{route.name}}" class="button" ng-class="route.settings.style">{{route.title}}</a>
+
+
+                    <a ng-if="vm.hasChilds(route)" href class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       uib-dropdown-toggle aria-haspopup="true" aria-expanded="false">{{route.title}}
+                        <span class="caret"></span></a>
+                    <ul ng-if="vm.hasChilds(route)" class="uib-dropdown-menu" aria-labelledby="reads-dropdown">
+                        <li ng-repeat="routeChild in route.settings.childs"><a ui-sref="{{routeChild.state}}">{{routeChild.title}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <img src="images/logo.png" class="navbar-logo"/>
+        </div>
+    </div>
+</nav>

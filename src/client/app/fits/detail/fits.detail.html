@@ -1,0 +1,39 @@
+<div class="fits generators-details row" ng-if="vm.model.isLoaded()">
+    <fit-panel
+            panel-title="Edit FIT {{vm.getFitType()}} Details">
+        <form name="fits" class="generators-form container-fluid" novalidate>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 fit-details-content">
+
+                        <div ui-view="relatedFits"></div>
+
+                        <div ui-view="generator"></div>
+
+                        <div ui-view="paymentRecipient"></div>
+
+                    </div>
+
+                    <div class="col-md-6 fit-details-content">
+                        <div ui-view="fitInfo"></div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="missing-fields" ng-show="fits.$invalid">Not all mandatory fields are populated. Please check
+                it</p>
+
+            <p class="missing-fields" ng-show="fits.eag.$invalid">MCS EAG is not valid</p>
+
+            <p class="missing-fields" ng-show="fits.publicGrant.$invalid">Public Grant is not valid</p>
+
+            <div class="fits-button-group">
+                <button type="submit" ng-click="vm.save()" class="btn btn-default btn-fits"
+                        ng-disabled="fits.$invalid">Save
+                </button>
+                <button type="button" ng-click="vm.goView()" class="btn btn-default btn-fits">To FIT View</button>
+                <a class="btn btn-default btn-fits" ui-sref="fits.list">To FITs list</a>
+            </div>
+        </form>
+    </fit-panel>
+</div>
