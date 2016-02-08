@@ -32,7 +32,7 @@ public class ConfigService {
         String fitsEngineUrl = getJndiValue("fits-engine-url", "http://localhost:8080/fits-engine");
 
         Properties properties = new Properties();
-        properties.put("fits.engine.url", fitsEngineUrl);
+        properties.put("engine.url", fitsEngineUrl);
 
         return properties;
     }

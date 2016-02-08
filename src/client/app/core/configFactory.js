@@ -25,7 +25,7 @@
         }
 
         function getEngineURL() {
-            return config ? config['fits.engine.url'] : null;
+            return config ? config['engine.url'] : null;
         }
     }
 })();

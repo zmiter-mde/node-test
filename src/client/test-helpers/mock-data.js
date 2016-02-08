@@ -39,7 +39,7 @@ var mockData = (function () {
 
     function getConfig() {
         return {
-            'fits.engine.url': 'http://localhost:8760/fits-engine'
+            'engine.url': 'http://localhost:8760/fits-engine'
         };
     }
 })();

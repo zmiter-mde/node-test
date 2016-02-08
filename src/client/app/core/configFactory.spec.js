@@ -27,7 +27,7 @@ describe('configFactory', function () {
 
     describe('#getEngineURL', function () {
         it('should return engine web app URL', function () {
-            expect(ConfigFactory.getEngineURL()).to.be.eql(config['fits.engine.url']);
+            expect(ConfigFactory.getEngineURL()).to.be.eql(config['engine.url']);
         });
     });
 });
